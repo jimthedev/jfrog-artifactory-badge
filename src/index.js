@@ -50,7 +50,9 @@ const badgeRoute = async (req, res) => {
   const latestDistVersion = tags.latest;
   console.log(latestDistVersion);
   res.setHeader("Content-Type", "image/svg+xml");
-
+  res.setHeader("Cache-Control", "no-cache");
+  res.setHeader("Pragma","no-cache");
+  
   const version = latestDistVersion.replace(/-/gi, "--");
   const imageUrl = `https://img.shields.io/badge/version-${version}-green.svg?style=flat-square`;
   const img = await axios.get(imageUrl);
