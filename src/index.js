@@ -17,7 +17,7 @@ const notFoundRoute = async (req, res) =>
 
 const badgeRoute = async (req, res) => {
   if (req.url === "/favicon.ico") {
-    send(res, 404, await Promise.resolve("Favicon not available."));
+    send(res, 200, await Promise.resolve("Favicon not available."));
     return;
   }
   const packageName = req.url.substring(1);
